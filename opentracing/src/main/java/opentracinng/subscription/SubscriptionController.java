@@ -3,6 +3,7 @@ package opentracinng.subscription;
 import io.opentracing.Scope;
 import io.opentracing.Span;
 import io.opentracing.Tracer;
+import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -23,6 +24,18 @@ public class SubscriptionController extends TracedController {
         Span span = startServerSpan("/subscribeMovie", request);
         try (Scope scope = tracer.scopeManager().activate(span, false)) {
             User user = new User();
+
+            Enumeration attr = request.getAttributeNames();
+            while(attr.hasMoreElements())
+            {
+                System.out.println("Attr: "+attr.nextElement());
+            }
+
+            Map<String,String[]> requestMap= request.getParameterMap();
+
+            for(int i=0;i<requestMap.size();i++){
+            System.out.println("Request: "+requestMap.get(i));
+        }
 
             if (balance <= 500) {
                 //subscribe movie silver pack
