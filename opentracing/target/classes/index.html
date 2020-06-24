@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<script>
+        function loadXMLDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            var url = "http://localhost:8090/subscribeAllServices/300/false";
+            xmlhttp.onload = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == "200") {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+    </script>
+
+
+<div class="container" >
+  <h2 style="text-align:center">Subscription Model</h2>
+
+  <div class="btn-group btn-group-justified" >
+    <div class="btn-group" style="white-space: pre;">
+      <button type="button" onclick="loadXMLDoc()" class="btn btn-primary" style="width:50%:text-align: center;position: absolute;top: 50%;">Subscribe All Services</button>
+    </div>
+  </div>
+
+    <div class="btn-group btn-group-justified">
+    <div class="btn-group" style="white-space: pre;">
+      <button type="button" class="btn btn-primary" style="width:50%:text-align: center;position: absolute;top: 50%;">Movie Subscription</button>
+    </div>
+    </div>
+
+  <div class="btn-group btn-group-justified">
+    <div class="btn-group" style="white-space: pre;">
+      <button type="button" class="btn btn-primary" style="width:50%:text-align: center;position: absolute;top: 50%;">Special Services</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
