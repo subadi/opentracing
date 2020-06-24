@@ -19,7 +19,7 @@ public class SpecialSubApp {
     public io.opentracing.Tracer initTracer() {
         SamplerConfiguration samplerConfig = new SamplerConfiguration().withType("const").withParam(1);
         ReporterConfiguration reporterConfig = new ReporterConfiguration().withLogSpans(true);
-        return new Configuration("special-service-subscription").withSampler(samplerConfig).withReporter(reporterConfig).getTracer();
+        return new Configuration("special-opentracing-subscription").withSampler(samplerConfig).withReporter(reporterConfig).getTracer();
     }
 
     public static void main(String[] args) {
