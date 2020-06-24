@@ -25,6 +25,11 @@ to run application, you can run on seperate terminals:
 I have added dependancy of mysql in pom and mysql properties in application.properties which can be ignored as project does not deal with database.
 
 (Knowledge Base)
-Manual Autoinstrumentation requires bean of opentacing declaed in every microservices
-That tracer bean can be used by autowiring in respective microservices classes.
+Code Changes in the application as well as packaging
+Dependency 
+io.opentracing:opentracing-api:0.31.0 ,
+io.jaegertracing:jaeger-client:0.31.0
+and io.jaegertracing to be added to use bean
+Tracer bean declaration in application to use it via autowiring so that traces can be sent.
+With this all REST requests produce spans.
 
